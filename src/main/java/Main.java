@@ -13,8 +13,9 @@ public class Main {
 
     public void run(Scanner scanner) {
         List<Integer> listOfNumbers = getIntegers(scanner);
-        printNumbers(listOfNumbers);
+        printReverseNumbers(listOfNumbers);
         printSum(listOfNumbers);
+        printNumbers(listOfNumbers);
     }
 
     private static List<Integer> getIntegers(Scanner scanner) {
@@ -41,7 +42,6 @@ public class Main {
         Integer min = Collections.min(listOfNumbers);
         System.out.println("Najmniejsza liczba w liście to " + min);
         System.out.println("Największa liczba w liście to " + max);
-        reverseNumbers(listOfNumbers);
     }
 
     private static void printSum(List<Integer> listOfNumbers) {
@@ -60,17 +60,16 @@ public class Main {
         System.out.println(stringbuilder.toString());
     }
 
-    private static void reverseNumbers(List<Integer> listOfNumbers) {
-        Collections.reverse(listOfNumbers);
-        System.out.println(listOfNumbers);
-        for (int i = 0; i < listOfNumbers.size(); i++) {
-            if (listOfNumbers.get(i) < listOfNumbers.size()) {
+    private static void printReverseNumbers(List<Integer> listOfNumbers) {
+        for (int i = listOfNumbers.size() - 1; i >= 0; i--) {
+            if (i > 0) {
                 System.out.print(listOfNumbers.get(i) + ", ");
+
             } else {
                 System.out.print(listOfNumbers.get(i));
-                System.out.println();
             }
         }
+        System.out.println();
     }
 }
 
